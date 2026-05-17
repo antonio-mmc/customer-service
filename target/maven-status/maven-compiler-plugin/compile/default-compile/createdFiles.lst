@@ -8,6 +8,7 @@ org/springframework/samples/petclinic/customer/domain/Pet$PetBuilder.class
 org/springframework/samples/petclinic/customer/dto/PetRequest.class
 org/springframework/samples/petclinic/customer/dto/OwnerResponse.class
 org/springframework/samples/petclinic/customer/exception/OwnerNotFoundException.class
+org/springframework/samples/petclinic/customer/messaging/PetEventPublisher.class
 org/springframework/samples/petclinic/customer/repository/PetRepository.class
 org/springframework/samples/petclinic/customer/domain/Owner$OwnerBuilder.class
 org/springframework/samples/petclinic/customer/repository/PetTypeRepository.class
@@ -18,6 +19,7 @@ org/springframework/samples/petclinic/customer/domain/PetType$PetTypeBuilder.cla
 org/springframework/samples/petclinic/customer/domain/Owner.class
 org/springframework/samples/petclinic/customer/exception/PetStatusException.class
 org/springframework/samples/petclinic/customer/controller/GlobalExceptionHandler.class
+org/springframework/samples/petclinic/customer/messaging/PetDeactivatedEvent.class
 org/springframework/samples/petclinic/customer/dto/PetValidationResponse.class
 org/springframework/samples/petclinic/customer/domain/PetStatus.class
 org/springframework/samples/petclinic/customer/controller/InternalPetController.class

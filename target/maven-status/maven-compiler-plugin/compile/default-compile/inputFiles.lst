@@ -2,6 +2,7 @@
 /home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/dto/OwnerResponse.java
 /home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/repository/PetTypeRepository.java
 /home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/exception/PetStatusException.java
+/home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/messaging/PetDeactivatedEvent.java
 /home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/domain/Owner.java
 /home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/exception/OwnerNotFoundException.java
 /home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/domain/PetType.java
@@ -11,6 +12,7 @@
 /home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/dto/PetSummary.java
 /home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/dto/PetValidationResponse.java
 /home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/controller/InternalPetController.java
+/home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/messaging/PetEventPublisher.java
 /home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/service/CustomerService.java
 /home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/domain/Pet.java
 /home/lucas/ASID/customer-service/src/main/java/org/springframework/samples/petclinic/customer/exception/PetNotFoundException.java
