@@ -2,6 +2,8 @@ package org.springframework.samples.petclinic.customer.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.samples.petclinic.customer.domain.Owner;
+
+import java.util.List;
 import org.springframework.samples.petclinic.customer.domain.Pet;
 import org.springframework.samples.petclinic.customer.domain.PetStatus;
 import org.springframework.samples.petclinic.customer.domain.PetType;
@@ -33,8 +35,43 @@ public class CustomerService {
 
     @Transactional(readOnly = true)
     public Owner findOwnerById(Long ownerId) {
-        return ownerRepository.findById(ownerId)
+        return ownerRepository.findByIdWithPetsAndTypes(ownerId)
                 .orElseThrow(() -> new OwnerNotFoundException(ownerId));
+    }
+
+    @Transactional(readOnly = true)
+    public List<Owner> getAllOwners(String lastName) {
+        if (lastName != null && !lastName.isBlank()) {
+            return ownerRepository.findByLastNameContainingWithPetsAndTypes(lastName);
+        }
+        return ownerRepository.findAllWithPetsAndTypes();
+    }
+
+    @Transactional
+    public Owner updateOwner(Long ownerId, OwnerRequest request) {
+        Owner owner = ownerRepository.findById(ownerId)
+                .orElseThrow(() -> new OwnerNotFoundException(ownerId));
+        owner.setFirstName(request.firstName());
+        owner.setLastName(request.lastName());
+        owner.setAddress(request.address());
+        owner.setCity(request.city());
+        owner.setTelephone(request.telephone());
+        ownerRepository.save(owner);
+        return ownerRepository.findByIdWithPetsAndTypes(ownerId)
+                .orElseThrow(() -> new OwnerNotFoundException(ownerId));
+    }
+
+    @Transactional
+    public void deleteOwner(Long ownerId) {
+        Owner owner = ownerRepository.findById(ownerId)
+                .orElseThrow(() -> new OwnerNotFoundException(ownerId));
+        ownerRepository.delete(owner);
+    }
+
+    @Transactional(readOnly = true)
+    public Pet getPetById(Long petId) {
+        return petRepository.findByIdWithOwnerAndType(petId)
+                .orElseThrow(() -> new PetNotFoundException(petId));
     }
 
     @Transactional
@@ -58,7 +95,7 @@ public class CustomerService {
 
     @Transactional
     public Pet deactivatePet(Long petId) {
-        Pet pet = petRepository.findById(petId)
+        Pet pet = petRepository.findByIdWithOwnerAndType(petId)
                 .orElseThrow(() -> new PetNotFoundException(petId));
 
         if (pet.getStatus() == PetStatus.INACTIVE) {

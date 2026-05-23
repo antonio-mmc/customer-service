@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.samples.petclinic.customer.domain.Pet;
 import org.springframework.samples.petclinic.customer.dto.PetSummary;
 import org.springframework.samples.petclinic.customer.service.CustomerService;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class PetController {
 
     private final CustomerService customerService;
+
+    @GetMapping("/{petId}")
+    @Operation(summary = "Get a pet by ID")
+    public ResponseEntity<PetSummary> getPetById(@PathVariable Long petId) {
+        Pet pet = customerService.getPetById(petId);
+        return ResponseEntity.ok(PetSummary.from(pet));
+    }
 
     @PatchMapping("/{petId}/deactivate")
     @Operation(summary = "Deactivate a pet by ID")
