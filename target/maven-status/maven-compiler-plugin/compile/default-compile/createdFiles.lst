@@ -1,3 +1,4 @@
+org\springframework\samples\petclinic\customer\dto\PetSummary$PetTypeInfo.class
 org\springframework\samples\petclinic\customer\controller\InternalPetController.class
 org\springframework\samples\petclinic\customer\dto\OwnerRequest.class
 org\springframework\samples\petclinic\customer\exception\PetStatusException.class
@@ -12,6 +13,7 @@ org\springframework\samples\petclinic\customer\controller\OwnerController.class
 org\springframework\samples\petclinic\customer\exception\OwnerNotFoundException.class
 org\springframework\samples\petclinic\customer\messaging\PetDeactivatedEvent.class
 org\springframework\samples\petclinic\customer\messaging\PetEventPublisher.class
+org\springframework\samples\petclinic\customer\dto\PetTypeResponse.class
 org\springframework\samples\petclinic\customer\repository\PetRepository.class
 org\springframework\samples\petclinic\customer\dto\PetSummary.class
 org\springframework\samples\petclinic\customer\CustomerServiceApplication.class
@@ -21,6 +23,7 @@ org\springframework\samples\petclinic\customer\domain\Owner$OwnerBuilder.class
 org\springframework\samples\petclinic\customer\repository\OwnerRepository.class
 org\springframework\samples\petclinic\customer\domain\PetType.class
 org\springframework\samples\petclinic\customer\controller\GlobalExceptionHandler.class
+org\springframework\samples\petclinic\customer\controller\PetTypeController.class
 org\springframework\samples\petclinic\customer\dto\PetValidationResponse.class
 org\springframework\samples\petclinic\customer\service\CustomerService.class
 org\springframework\samples\petclinic\customer\controller\PetController.class
