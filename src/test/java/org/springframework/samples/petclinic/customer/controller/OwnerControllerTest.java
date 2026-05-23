@@ -123,6 +123,7 @@ class OwnerControllerTest {
                     .name("Whiskers")
                     .birthDate(LocalDate.of(2020, 1, 15))
                     .type(petType)
+                    .owner(sampleOwner)
                     .status(PetStatus.ACTIVE)
                     .build();
 
@@ -134,7 +135,7 @@ class OwnerControllerTest {
                     .andExpect(status().isCreated())
                     .andExpect(jsonPath("$.id", is(2)))
                     .andExpect(jsonPath("$.name", is("Whiskers")))
-                    .andExpect(jsonPath("$.typeName", is("Cat")))
+                    .andExpect(jsonPath("$.type.name", is("Cat")))
                     .andExpect(jsonPath("$.status", is("ACTIVE")));
         }
 
